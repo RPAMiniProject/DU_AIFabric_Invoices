@@ -3,7 +3,7 @@
     <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>841,2244</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>841,2074</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -94,7 +94,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Learning tutorial:&#xA;https://docs.uipath.com/document-understanding/docs/digitization-overview" DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="520,2179" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Learning tutorial:&#xA;https://docs.uipath.com/document-understanding/docs/digitization-overview" DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="520,2009" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="p6:DocumentTaxonomy" Name="taxomony" />
       <Variable x:TypeArguments="x:String" Name="docText" />
@@ -201,27 +201,16 @@
       </sap:WorkflowViewStateService.ViewState>
     </p1:DataExtractionScope>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Data Extraction is Successful for: &quot; + FilePath]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="478,283" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,205" sap2010:WorkflowViewState.IdRef="Sequence_10">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke PresentValidationScreen workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="PresentValidationScreen.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="p5:Document" x:Key="in_DOM">[DOM]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_docText">[docText]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_docPath">[FilePath]</InArgument>
-              <InArgument x:TypeArguments="p6:DocumentTaxonomy" x:Key="in_taxomony">[taxomony]</InArgument>
-              <InArgument x:TypeArguments="p4:ExtractionResult" x:Key="in_ExtractionResult">[ExtractionResult]</InArgument>
-              <InArgument x:TypeArguments="p4:ExtractionResult" x:Key="in_humanValidatedData" />
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-        </Sequence>
-      </ui:CommentOut.Body>
-    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke PresentValidationScreen workflow" sap:VirtualizedContainerService.HintSize="478,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="PresentValidationScreen.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="p5:Document" x:Key="in_DOM">[DOM]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_docText">[docText]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_docPath">[FilePath]</InArgument>
+        <InArgument x:TypeArguments="p6:DocumentTaxonomy" x:Key="in_taxomony">[taxomony]</InArgument>
+        <InArgument x:TypeArguments="p4:ExtractionResult" x:Key="in_ExtractionResult">[ExtractionResult]</InArgument>
+        <InArgument x:TypeArguments="p4:ExtractionResult" x:Key="in_humanValidatedData" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ExtractDataToExcel workflow" sap:VirtualizedContainerService.HintSize="478,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="ExtractDataToExcel.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="p4:ExtractionResult" x:Key="in_ExtractionResult">[ExtractionResult]</InArgument>
