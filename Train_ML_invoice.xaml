@@ -1,0 +1,148 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Train_ML_invoice" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p2="http://schemas.uipath.com/workflow/activities/intelligentocr/training" xmlns:p3="http://schemas.uipath.com/workflow/activities/documentunderstanding-ml" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_docPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_docText" Type="InArgument(x:String)" />
+    <x:Property Name="in_DOM" Type="InArgument(p:Document)" />
+    <x:Property Name="in_humanValidatedData" Type="InArgument(p1:ExtractionResult)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>841,547</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="41">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.TaxonomyManagement</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Digitization</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DataExtraction</x:String>
+      <x:String>UiPath.OmniPage.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities.Editors</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Training</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Training</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OmniPage.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="520,475" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <p2:TrainExtractorsScope sap2010:Annotation.AnnotationText="Activity added by thara for exploration: Train back the ML Skill set in the orchestrator,&#xA;with the extraction results" DisplayName="Train Extractors Scope" DocumentObjectModel="[in_DOM]" DocumentPath="[in_docPath]" DocumentText="[in_docText]" sap:VirtualizedContainerService.HintSize="478,383" HumanValidatedData="[in_humanValidatedData]" sap2010:WorkflowViewState.IdRef="TrainExtractorsScope_1" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI7bbd5cb5d69449f5acf2fcacb5167320&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;InvoiceExtraction.AIFabric.ScannedInvoices&quot;:{&quot;FieldMappings&quot;:{&quot;InvoiceExtraction.AIFabric.ScannedInvoices.InvoiceNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.InvoiceNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;invoice-no\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;InvoiceExtraction.AIFabric.ScannedInvoices.InvoiceDate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.InvoiceDate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;date\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;InvoiceExtraction.AIFabric.ScannedInvoices.VendorName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.VendorName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;name\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;InvoiceExtraction.AIFabric.ScannedInvoices.VendorAddress&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.VendorAddress&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;vendor-addr\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;InvoiceExtraction.AIFabric.ScannedInvoices.BillingName&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.BillingName&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;billing-name\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;InvoiceExtraction.AIFabric.ScannedInvoices.BillingAddress&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.BillingAddress&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;billing-addr\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;InvoiceExtraction.AIFabric.ScannedInvoices.TotalAmount&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;InvoiceExtraction.AIFabric.ScannedInvoices.TotalAmount&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;total\&quot;&quot;,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:&quot;\&quot;\&quot;&quot;}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI7bbd5cb5d69449f5acf2fcacb5167320&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI7bbd5cb5d69449f5acf2fcacb5167320&quot;:[{&quot;FieldId&quot;:&quot;&quot;,&quot;SubOptions&quot;:[{&quot;FieldId&quot;:&quot;invoice-no&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;date&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;name&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;vendor-addr&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;billing-name&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;billing-addr&quot;,&quot;SubOptions&quot;:null},{&quot;FieldId&quot;:&quot;total&quot;,&quot;SubOptions&quot;:null}]}]}}">
+      <p2:TrainExtractorsScope.Trainables>
+        <p3:MachineLearningExtractorTrainer AvailableMLSkills="{x:Null}" Endpoint="{x:Null}" SelectedMLSkill="{x:Null}" Configuration="{}{&quot;SelectedMLSkill&quot;:&quot;ML_Skill_Pilot&quot;,&quot;AvailableMLSkills&quot;:[&quot;ML_Skill_Pilot&quot;,&quot;ScrapInvoice_ML&quot;]}" DisplayName="Machine Learning Extractor Trainer" sap:VirtualizedContainerService.HintSize="234,200" sap2010:WorkflowViewState.IdRef="MachineLearningExtractorTrainer_1" OutputFolder="TrainData\" PersistenceId="UI7bbd5cb5d69449f5acf2fcacb5167320" RetryOnFailure="True" SelectedDataset="dataset_pilot" SelectedProject="Invoices" Timeout="100000">
+          <p3:MachineLearningExtractorTrainer.AvailableDatasets>
+            <scg:List x:TypeArguments="x:String" Capacity="2">
+              <x:String>dataset_Invoice</x:String>
+              <x:String>dataset_pilot</x:String>
+            </scg:List>
+          </p3:MachineLearningExtractorTrainer.AvailableDatasets>
+          <p3:MachineLearningExtractorTrainer.AvailableProjects>
+            <scg:List x:TypeArguments="x:String" Capacity="1">
+              <x:String>Invoices</x:String>
+            </scg:List>
+          </p3:MachineLearningExtractorTrainer.AvailableProjects>
+          <p3:MachineLearningExtractorTrainer.DocumentObjectModel>
+            <InArgument x:TypeArguments="p:Document">
+              <DelegateArgumentValue x:TypeArguments="p:Document">
+                <DelegateInArgument x:TypeArguments="p:Document" Name="DocumentObjectModel" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:MachineLearningExtractorTrainer.DocumentObjectModel>
+          <p3:MachineLearningExtractorTrainer.DocumentPath>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:MachineLearningExtractorTrainer.DocumentPath>
+          <p3:MachineLearningExtractorTrainer.DocumentText>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:MachineLearningExtractorTrainer.DocumentText>
+          <p3:MachineLearningExtractorTrainer.HumanValidatedData>
+            <InArgument x:TypeArguments="p1:ExtractionResult[]">
+              <DelegateArgumentValue x:TypeArguments="p1:ExtractionResult[]">
+                <DelegateInArgument x:TypeArguments="p1:ExtractionResult[]" Name="HumanValidatedData" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:MachineLearningExtractorTrainer.HumanValidatedData>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </p3:MachineLearningExtractorTrainer>
+      </p2:TrainExtractorsScope.Trainables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p2:TrainExtractorsScope>
+  </Sequence>
+</Activity>
